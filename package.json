@@ -1,0 +1,23 @@
+{
+  "name": "@kun/utils",
+  "version": "1.0.0",
+  "description": "common project utils",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "package": "npm run package-main & npm run package-module",
+    "package-main": "tsc --outDir main -d --module commonjs",
+    "package-module": "tsc --outDir lib -d --module esnext",
+    "test": "jest"
+  },
+  "author": "Guosugaz",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "@types/node": "^16.4.9",
+    "@types/webpack-env": "^1.16.2",
+    "jest": "^27.0.6",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.5"
+  }
+}
