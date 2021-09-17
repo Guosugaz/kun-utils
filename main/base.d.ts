@@ -14,7 +14,7 @@ export declare function isObject(val: unknown): val is Record<any, any>;
  * @param {*} obj
  * @return {*}
  */
-export declare const mapIsDefObject: <T = any>(obj: T) => Fix<T, null | undefined>;
+export declare const mapToDefObject: <T = any>(obj: T) => Fix<T, null | undefined>;
 /**
  * @description: 获取文件类型 text.png -> png
  * @param {string} filename

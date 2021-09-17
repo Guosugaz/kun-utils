@@ -3,13 +3,14 @@
  * @Author: Guosugaz
  * @LastEditors: Guosugaz
  * @Date: 2021-08-01 19:06:14
- * @LastEditTime: 2021-08-22 19:39:25
+ * @LastEditTime: 2021-09-17 23:51:12
  */
 const {
   parseTime,
   formatTime,
   getMonthStartAndEnd,
-  numToFix
+  numToFix,
+  toThousands
 } = require("../main");
 
 describe("test parseTime", () => {
@@ -81,5 +82,38 @@ describe("test clearCountFloat", () => {
     expect(numToFix(null)).toBe("0.00");
     expect(numToFix(null, 1)).toBe("0.0");
     expect(numToFix(null, 0)).toBe("0");
+  });
+});
+
+describe("test getMonthStartAndEnd", () => {
+  test("测试获取当前月的开始和结束", () => {
+    const date = new Date();
+    const y = parseTime(date, "{y}");
+    const m = parseTime(date, "{m}");
+    const lastMonth = new Date(y, m, 0).getDate();
+    expect({
+      start: `${y}-${m}-01`,
+      end: `${y}-${m}-${lastMonth}`
+    }).toEqual(getMonthStartAndEnd());
+  });
+});
+
+describe("test toThousands", () => {
+  test("测试1个千位", () => {
+    expect(toThousands(1000)).toBe("1,000");
+  });
+  test("测试2个千位", () => {
+    expect(toThousands(1000000)).toBe("1,000,000");
+  });
+  test("测试3个千位", () => {
+    expect(toThousands(1000000000)).toBe("1,000,000,000");
+  });
+  test("测试1个千位(带小数)", () => {
+    expect(toThousands(1000.01)).toBe("1,000.01");
+    expect(toThousands(1000.32)).toBe("1,000.32");
+  });
+  test("测试2个千位(带小数)", () => {
+    expect(toThousands(1000000.01)).toBe("1,000,000.01");
+    expect(toThousands(1000000.32)).toBe("1,000,000.32");
   });
 });

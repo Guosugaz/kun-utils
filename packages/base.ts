@@ -3,7 +3,7 @@
  * @Author: Guosugaz
  * @LastEditors: Guosugaz
  * @Date: 2021-08-01 15:16:04
- * @LastEditTime: 2021-08-01 17:19:44
+ * @LastEditTime: 2021-09-07 15:57:31
  */
 type FilterKeys<T, U> = {
   [key in keyof T]: T[key] extends U ? never : key;
@@ -29,7 +29,7 @@ export function isObject(val: unknown): val is Record<any, any> {
  * @param {*} obj
  * @return {*}
  */
-export const mapIsDefObject = <T = any>(obj: T): Fix<T, undefined | null> => {
+export const mapToDefObject = <T = any>(obj: T): Fix<T, undefined | null> => {
   if (!isDef(obj) || !isObject(obj)) return obj;
   const mapObj: any = {};
   for (let key of Object.keys(obj)) {

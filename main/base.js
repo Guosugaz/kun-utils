@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getExtension = exports.mapIsDefObject = exports.isObject = exports.isDef = void 0;
+exports.getExtension = exports.mapToDefObject = exports.isObject = exports.isDef = void 0;
 /**
  * @description: 验证是否为undefined | null
  * @param {any} value
@@ -19,7 +19,7 @@ exports.isObject = isObject;
  * @param {*} obj
  * @return {*}
  */
-var mapIsDefObject = function (obj) {
+var mapToDefObject = function (obj) {
     if (!exports.isDef(obj) || !isObject(obj))
         return obj;
     var mapObj = {};
@@ -32,7 +32,7 @@ var mapIsDefObject = function (obj) {
     }
     return mapObj;
 };
-exports.mapIsDefObject = mapIsDefObject;
+exports.mapToDefObject = mapToDefObject;
 /**
  * @description: 获取文件类型 text.png -> png
  * @param {string} filename

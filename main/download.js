@@ -9,7 +9,7 @@ exports.downloadFile = void 0;
  * @return {void}
  */
 var downloadFile = function (data, fileName, type) {
-    if (type === void 0) { type = "xlsx"; }
+    if (type === void 0) { type = "xls"; }
     var blob = new Blob([data], {
         type: "application/vnd.ms-excel;charset=UTF-8"
     });

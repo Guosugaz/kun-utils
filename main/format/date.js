@@ -4,7 +4,7 @@
  * @Author: Guosugaz
  * @LastEditors: Guosugaz
  * @Date: 2021-08-01 14:53:34
- * @LastEditTime: 2021-08-01 17:28:14
+ * @LastEditTime: 2021-09-17 23:52:29
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getMonthStartAndEnd = exports.formatTime = exports.parseTime = void 0;
@@ -110,10 +110,12 @@ exports.formatTime = formatTime;
  * @return {{start: string, end: string}}
  */
 function getMonthStartAndEnd() {
-    var y = Number(parseTime(new Date(), "{y}"));
-    var m = Number(parseTime(new Date(), "{m}"));
+    var y = parseTime(new Date(), "{y}");
+    var m = parseTime(new Date(), "{m}");
     var start = y + "-" + m + "-01";
-    var end = parseTime(new Date(), "{y}-{m}") + "-" + new Date(y, m, 0).getDate();
+    var end = parseTime(new Date(), "{y}-{m}") +
+        "-" +
+        new Date(Number(y), Number(m), 0).getDate();
     return {
         start: start,
         end: end

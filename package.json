@@ -8,6 +8,7 @@
     "package": "npm run package-main & npm run package-module",
     "package-main": "tsc --outDir main -d --module commonjs",
     "package-module": "tsc --outDir lib -d --module esnext",
+    "package-module-watch": "tsc --outDir lib -d --module esnext --watch",
     "test": "jest"
   },
   "author": "Guosugaz",

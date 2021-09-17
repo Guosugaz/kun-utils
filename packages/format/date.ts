@@ -3,7 +3,7 @@
  * @Author: Guosugaz
  * @LastEditors: Guosugaz
  * @Date: 2021-08-01 14:53:34
- * @LastEditTime: 2021-08-01 17:28:14
+ * @LastEditTime: 2021-09-17 23:52:29
  */
 
 /**
@@ -107,11 +107,13 @@ export function formatTime(time: number | string, option?: string): string {
  * @return {{start: string, end: string}}
  */
 export function getMonthStartAndEnd(): { start: string; end: string } {
-  const y = Number(parseTime(new Date(), "{y}"));
-  const m = Number(parseTime(new Date(), "{m}"));
+  const y = parseTime(new Date(), "{y}");
+  const m = parseTime(new Date(), "{m}");
   const start = `${y}-${m}-01`;
   const end =
-    parseTime(new Date(), "{y}-{m}") + "-" + new Date(y, m, 0).getDate();
+    parseTime(new Date(), "{y}-{m}") +
+    "-" +
+    new Date(Number(y), Number(m), 0).getDate();
   return {
     start,
     end
