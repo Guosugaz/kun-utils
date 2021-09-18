@@ -3,10 +3,10 @@
  * @Author: Guosugaz
  * @LastEditors: Guosugaz
  * @Date: 2021-08-01 15:16:04
- * @LastEditTime: 2021-09-07 15:57:31
+ * @LastEditTime: 2021-09-18 11:07:52
  */
 type FilterKeys<T, U> = {
-  [key in keyof T]: T[key] extends U ? never : key;
+  [key in keyof T]:  T[key] extends U ? never : key;
 }[keyof T];
 
 type Fix<T, U> = Pick<T, FilterKeys<T, U>>;

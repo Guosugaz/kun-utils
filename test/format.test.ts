@@ -3,15 +3,15 @@
  * @Author: Guosugaz
  * @LastEditors: Guosugaz
  * @Date: 2021-08-01 19:06:14
- * @LastEditTime: 2021-09-17 23:51:12
+ * @LastEditTime: 2021-09-18 10:55:35
  */
-const {
+import { 
   parseTime,
   formatTime,
   getMonthStartAndEnd,
   numToFix,
   toThousands
-} = require("../main");
+ } from "../packages/index";
 
 describe("test parseTime", () => {
   const time = 1627816169200;
@@ -77,12 +77,6 @@ describe("test clearCountFloat", () => {
   test("测试不保留", () => {
     expect(numToFix("123.234", 0)).toBe(123);
   });
-  test("测试undefined或者null", () => {
-    expect(numToFix(undefined)).toBe("0.00");
-    expect(numToFix(null)).toBe("0.00");
-    expect(numToFix(null, 1)).toBe("0.0");
-    expect(numToFix(null, 0)).toBe("0");
-  });
 });
 
 describe("test getMonthStartAndEnd", () => {
@@ -90,7 +84,7 @@ describe("test getMonthStartAndEnd", () => {
     const date = new Date();
     const y = parseTime(date, "{y}");
     const m = parseTime(date, "{m}");
-    const lastMonth = new Date(y, m, 0).getDate();
+    const lastMonth = new Date(Number(y), Number(m), 0).getDate();
     expect({
       start: `${y}-${m}-01`,
       end: `${y}-${m}-${lastMonth}`

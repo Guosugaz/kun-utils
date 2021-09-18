@@ -3,9 +3,9 @@
  * @Author: Guosugaz
  * @LastEditors: Guosugaz
  * @Date: 2021-08-22 19:39:40
- * @LastEditTime: 2021-09-07 23:19:55
+ * @LastEditTime: 2021-09-18 10:15:13
  */
-const { isDef, mapToDefObject, isObject } = require("../main");
+import { isDef, mapToDefObject, isObject } from "../packages";
 
 describe("test isDef", () => {
   test("测试undefined或者null", () => {
