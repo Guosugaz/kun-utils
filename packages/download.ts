@@ -3,7 +3,7 @@
  * @Author: Guosugaz
  * @LastEditors: Guosugaz
  * @Date: 2021-08-01 16:59:02
- * @LastEditTime: 2021-08-22 19:41:15
+ * @LastEditTime: 2021-09-18 17:47:09
  */
 type Type = "xls" | "xlsx" | "zip" | "text";
 
@@ -17,17 +17,17 @@ type Type = "xls" | "xlsx" | "zip" | "text";
 export const downloadFile = (
   data: BlobPart,
   fileName: string,
-  type: Type = "xls"
+  type: Type = "xlsx",
 ): void => {
   let blob = new Blob([data], {
-    type: "application/vnd.ms-excel;charset=UTF-8"
+    type: "charset=UTF-8",
   });
   let url = window.URL.createObjectURL(blob);
   const downloadElement = document.createElement("a"); // 创建a标签
   downloadElement.href = url;
   // eslint-disable-next-line
   downloadElement.download = `${fileName}_${parseInt(
-    String(new Date().getTime() / 1000)
+    String(new Date().getTime() / 1000),
   )}.${type}`;
   document.body.appendChild(downloadElement);
   downloadElement.click();

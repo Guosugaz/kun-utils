@@ -7,6 +7,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "dev": "parcel index.html",
+    "devServer": "node src/service/index.js",
     "package": "npm run package-main & npm run package-module",
     "package-main": "tsc --outDir main -d --module commonjs",
     "package-module": "tsc --outDir lib -d --module esnext",
@@ -16,12 +17,22 @@
   "author": "Guosugaz",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/transformer-vue": "^2.0.0-rc.0",
     "@types/jest": "^26.0.24",
     "@types/node": "^16.4.9",
     "@types/webpack-env": "^1.16.2",
     "jest": "^27.0.6",
+    "ts-jest": "^27.0.5",
     "tslib": "^2.3.0",
-    "typescript": "^4.3.5",
-    "ts-jest": "^27.0.5"
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "@types/react-dom": "^17.0.9",
+    "axios": "^0.21.4",
+    "express": "^4.17.1",
+    "node-xlsx": "^0.17.1",
+    "parcel": "^2.0.0-rc.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
