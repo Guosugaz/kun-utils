@@ -3,7 +3,7 @@
  * @Author: Guosugaz
  * @LastEditors: Guosugaz
  * @Date: 2021-08-01 15:16:04
- * @LastEditTime: 2021-09-18 11:07:52
+ * @LastEditTime: 2021-09-22 10:49:38
  */
 type FilterKeys<T, U> = {
   [key in keyof T]:  T[key] extends U ? never : key;
@@ -14,20 +14,25 @@ type Fix<T, U> = Pick<T, FilterKeys<T, U>>;
 /**
  * @description: 验证是否为undefined | null
  * @param {any} value
- * @return {*}
+ * @return {boolean}
  */
-export const isDef = <T>(value: T): value is NonNullable<T> => {
+export const isDef = <T = any>(value: T): value is NonNullable<T> => {
   return value !== undefined && value !== null;
 };
 
+/**
+ * @description: 判断传入的值是否为对象
+ * @param {unknown} val
+ * @return {boolean}
+ */
 export function isObject(val: unknown): val is Record<any, any> {
   return val !== null && typeof val === "object";
 }
 
 /**
  * @description: 过滤掉对象的undefined | null
- * @param {*} obj
- * @return {*}
+ * @param {Object} obj
+ * @return {Object}
  */
 export const mapToDefObject = <T = any>(obj: T): Fix<T, undefined | null> => {
   if (!isDef(obj) || !isObject(obj)) return obj;

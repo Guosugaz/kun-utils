@@ -3,9 +3,9 @@
  * @Author: Guosugaz
  * @LastEditors: Guosugaz
  * @Date: 2021-08-22 19:39:40
- * @LastEditTime: 2021-09-18 10:15:13
+ * @LastEditTime: 2021-09-22 10:58:42
  */
-import { isDef, mapToDefObject, isObject } from "../packages";
+import { isDef, mapToDefObject, isObject, getExtension } from "../packages";
 
 describe("test isDef", () => {
   test("测试undefined或者null", () => {
@@ -39,12 +39,19 @@ describe("test mapToDefObject", () => {
         b: null,
         c: "test",
         d: 1,
-        e: [1, "sd"]
-      })
+        e: [1, "sd"],
+      }),
     ).toEqual({
       c: "test",
       d: 1,
-      e: [1, "sd"]
+      e: [1, "sd"],
     });
+  });
+});
+
+describe("test getExtension", () => {
+  test("获取文件的类型名称", () => {
+    expect(getExtension("asd.cvxv.jpeg")).toBe("jpeg");
+    expect(getExtension("asd_cvxv.txt")).toBe("txt");
   });
 });

@@ -13,7 +13,7 @@ function numToFix(value, fix, toString) {
     if (fix === void 0) { fix = 2; }
     if (toString === void 0) { toString = false; }
     var zero = (0).toFixed(fix);
-    if (!base_1.isDef(value))
+    if (!(0, base_1.isDef)(value))
         return zero;
     if (typeof value === "string") {
         value = Number(value);

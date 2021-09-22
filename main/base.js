@@ -4,29 +4,34 @@ exports.getExtension = exports.mapToDefObject = exports.isObject = exports.isDef
 /**
  * @description: 验证是否为undefined | null
  * @param {any} value
- * @return {*}
+ * @return {boolean}
  */
 var isDef = function (value) {
     return value !== undefined && value !== null;
 };
 exports.isDef = isDef;
+/**
+ * @description: 判断传入的值是否为对象
+ * @param {unknown} val
+ * @return {boolean}
+ */
 function isObject(val) {
     return val !== null && typeof val === "object";
 }
 exports.isObject = isObject;
 /**
  * @description: 过滤掉对象的undefined | null
- * @param {*} obj
- * @return {*}
+ * @param {Object} obj
+ * @return {Object}
  */
 var mapToDefObject = function (obj) {
-    if (!exports.isDef(obj) || !isObject(obj))
+    if (!(0, exports.isDef)(obj) || !isObject(obj))
         return obj;
     var mapObj = {};
     for (var _i = 0, _a = Object.keys(obj); _i < _a.length; _i++) {
         var key = _a[_i];
         var value = obj[key];
-        if (!exports.isDef(value))
+        if (!(0, exports.isDef)(value))
             continue;
         mapObj[key] = value;
     }

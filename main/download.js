@@ -9,9 +9,9 @@ exports.downloadFile = void 0;
  * @return {void}
  */
 var downloadFile = function (data, fileName, type) {
-    if (type === void 0) { type = "xls"; }
+    if (type === void 0) { type = "xlsx"; }
     var blob = new Blob([data], {
-        type: "application/vnd.ms-excel;charset=UTF-8"
+        type: "charset=UTF-8",
     });
     var url = window.URL.createObjectURL(blob);
     var downloadElement = document.createElement("a"); // 创建a标签

@@ -5,14 +5,19 @@ declare type Fix<T, U> = Pick<T, FilterKeys<T, U>>;
 /**
  * @description: 验证是否为undefined | null
  * @param {any} value
- * @return {*}
+ * @return {boolean}
  */
-export declare const isDef: <T>(value: T) => value is NonNullable<T>;
+export declare const isDef: <T = any>(value: T) => value is NonNullable<T>;
+/**
+ * @description: 判断传入的值是否为对象
+ * @param {unknown} val
+ * @return {boolean}
+ */
 export declare function isObject(val: unknown): val is Record<any, any>;
 /**
  * @description: 过滤掉对象的undefined | null
- * @param {*} obj
- * @return {*}
+ * @param {Object} obj
+ * @return {Object}
  */
 export declare const mapToDefObject: <T = any>(obj: T) => Fix<T, null | undefined>;
 /**

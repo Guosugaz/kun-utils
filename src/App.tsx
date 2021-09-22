@@ -14,13 +14,10 @@ const App = () => {
       });
   };
 
-  // const handleChangeFile = (file: InnerHTML) => {
-  //   console.log(file.TA)
-  // }
   return (
     <div>
+      <h4>测试下载</h4>
       <button onClick={download}>下载</button>
-      {/* <input type="file" onChange={handleChangeFile} /> */}
     </div>
   );
 };
