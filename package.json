@@ -1,16 +1,14 @@
 {
   "name": "@sugaz/utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "common project utils",
-  "main": "main/index.js",
+  "main": "lib/index.js",
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "dev": "parcel index.html",
     "devServer": "node src/service/index.js",
-    "package": "npm run package-main & npm run package-module",
-    "package-main": "tsc --outDir main -d --module commonjs",
-    "package-module": "tsc --outDir lib -d --module esnext",
+    "build": "gulp clean && tsc --outDir lib -d --module esnext && gulp terser",
     "package-module-watch": "tsc --outDir lib -d --module esnext --watch",
     "test": "jest"
   },
@@ -25,10 +23,12 @@
   "author": "Guosugaz",
   "license": "ISC",
   "devDependencies": {
-    "@parcel/transformer-vue": "^2.0.0-rc.0",
     "@types/jest": "^26.0.24",
     "@types/node": "^16.4.9",
     "@types/webpack-env": "^1.16.2",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-terser": "^2.1.0",
     "jest": "^27.0.6",
     "ts-jest": "^27.0.5",
     "tslib": "^2.3.0",
