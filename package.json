@@ -1,6 +1,6 @@
 {
   "name": "@sugaz/utils",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "common project utils",
   "main": "lib/index.js",
   "module": "lib/index.js",
